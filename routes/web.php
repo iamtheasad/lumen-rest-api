@@ -12,6 +12,10 @@
 */
 
 
+$router->get('/', function (){
+    return ("<h1>React Portfolio Laravel Rest Api Created by Lumen Micro Service</h1>");
+});
+
 $router->get('/ChartData', ['middleware'=>'auth','uses'=>'ChartDataController@onAllSelect']);
 $router->get('/ClientReview', ['middleware'=>'auth','uses'=>'ClientReviewController@onAllSelect']);
 $router->post('/ContactSend', ['middleware'=>'auth','uses'=>'ContactController@onContactSend']);
