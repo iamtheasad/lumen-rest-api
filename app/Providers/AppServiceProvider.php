@@ -3,9 +3,17 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Laravel\Lumen\Routing\UrlGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+    public function boot(UrlGenerator $url){
+        if (env('REDIRECT_HTTPS')) {
+            $url->forceScheme('https');
+        }
+    }
+
     /**
      * Register any application services.
      *
@@ -13,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if(env('REDIRECTS_HTTPS')){
+            $this->app['request']->server->set->('HTTPS', true);
+        }
     }
 }
