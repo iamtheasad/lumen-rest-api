@@ -13,7 +13,7 @@
 
 
 $router->get('/', function (){
-    return ("<h1>React Portfolio Laravel Rest Api Created by Lumen Micro Service</h1>");
+    return ("<h1>React Portfolio Laravel Rest Api Created by Lumen</h1>");
 });
 
 $router->get('/ChartData', ['middleware'=>'auth','uses'=>'ChartDataController@onAllSelect']);
