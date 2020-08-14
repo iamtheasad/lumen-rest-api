@@ -9,15 +9,16 @@ class ContactController extends Controller
 {
     function onContactSend(Request $req)
     {
-        $name = $req->input('name');
-        $email = $req->input('email');
-        $msg = $req->input('msg');
+        $ContactArray = json_decode($req->getContent(), true);
+        $name = $ContactArray['name'];
+        $email = $ContactArray['email'];
+        $msg = $ContactArray['msg'];
 
-        $result = ContactTableModel::insert(['name'=>$name, 'email'=>$email, 'message'=>$msg]);
+        $result = ContactTableModel::insert(['name' => $name, 'email' => $email, 'message' => $msg]);
 
-        if($result==true){
+        if ($result == true) {
             return 1;
-        }else{
+        } else {
             return 0;
         }
     }
