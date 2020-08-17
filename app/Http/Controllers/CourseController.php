@@ -21,9 +21,9 @@ class CourseController extends Controller
         return $result;
     }
 
-    function onSelectDetails($courseID)
+    function onSelectDetails($CourseID)
     {
-       $id = $courseID;
+       $id = $CourseID;
 
        $result = CourseTableModel::where(['id'=>$id])->get();
        return $result;
